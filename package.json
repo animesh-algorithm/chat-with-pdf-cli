@@ -1,0 +1,27 @@
+{
+  "name": "chat-with-pdf",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Chat with PDF document",
+  "main": "chat.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Animesh Sharma",
+  "license": "MIT",
+  "dependencies": {
+    "hnswlib-node": "^1.4.2",
+    "langchain": "^0.0.86",
+    "pdf-parse": "^1.1.1"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/animesharma3/chat-with-pdf.git"
+  },
+  "bugs": {
+    "url": "https://github.com/animesharma3/chat-with-pdf/issues"
+  },
+  "homepage": "https://github.com/animesharma3/chat-with-pdf#readme"
+}
