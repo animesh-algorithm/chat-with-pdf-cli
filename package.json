@@ -4,6 +4,9 @@
   "version": "1.0.0",
   "description": "Chat with PDF document",
   "main": "chat.js",
+  "bin": {
+    "chat-with-pdf": "chat.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,11 +14,11 @@
   "author": "Animesh Sharma",
   "license": "MIT",
   "dependencies": {
+    "chat-with-pdf": "^1.0.0",
     "hnswlib-node": "^1.4.2",
     "langchain": "^0.0.86",
     "pdf-parse": "^1.1.1"
   },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/animesharma3/chat-with-pdf.git"
