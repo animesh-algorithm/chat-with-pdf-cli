@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { PDFLoader } from "langchain/document_loaders/fs/pdf";
 import { OpenAI } from "langchain/llms/openai";
 import { ConversationalRetrievalQAChain } from "langchain/chains";
@@ -9,7 +11,7 @@ import readline from "readline";
 
 async function askQuestion(chain, question) {
   const res = await chain.call({ question });
-  console.log(res.text);
+  console.log(`\x1b[1mbot:\x1b[0m${res.text}`);
 }
 
 async function main() {
@@ -20,7 +22,7 @@ async function main() {
 
   const askDocumentPath = async () => {
     rl.question(
-      "\x1b[1mEnter the path to the document: \x1b[0m",
+      "\x1b[1mbot:\x1b[0m Enter the path to the document\n\x1b[1muser: \x1b[0m",
       async (documentPath) => {
         const loader = new PDFLoader(documentPath);
 
@@ -50,7 +52,7 @@ async function main() {
 
         const askInitialQuestion = async () => {
           rl.question(
-            "\x1b[1mEnter your question:\x1b[0m ",
+            "\x1b[1mbot:\x1b[0m Enter your question (or type 'exit' to quit)\n\x1b[1muser: \x1b[0m",
             async (question) => {
               await askQuestion(chain, question);
               handleFollowUpQuestion(chain);
@@ -59,19 +61,16 @@ async function main() {
         };
 
         const handleFollowUpQuestion = async () => {
-          rl.question(
-            "\x1b[1mEnter your question (or type 'exit' to quit):\x1b[0m ",
-            async (followUpQuestion) => {
-              if (followUpQuestion.toLowerCase() === "exit") {
-                rl.close();
-                process.exit(0);
-                return;
-              }
-
-              await askQuestion(chain, followUpQuestion);
-              handleFollowUpQuestion();
+          rl.question("\x1b[1muser: \x1b[0m", async (followUpQuestion) => {
+            if (followUpQuestion.toLowerCase() === "exit") {
+              rl.close();
+              process.exit(0);
+              return;
             }
-          );
+
+            await askQuestion(chain, followUpQuestion);
+            handleFollowUpQuestion();
+          });
         };
 
         await askInitialQuestion();
