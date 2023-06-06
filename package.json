@@ -1,7 +1,7 @@
 {
   "name": "chat-with-pdf",
   "type": "module",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Chat with PDF document",
   "main": "chat.js",
   "bin": {
@@ -15,7 +15,6 @@
   "license": "MIT",
   "dependencies": {
     "hnswlib-node": "^1.4.2",
-    "keypress": "^0.2.1",
     "langchain": "^0.0.86",
     "pdf-parse": "^1.1.1"
   },
