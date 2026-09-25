@@ -71,3 +71,7 @@ git clone https://github.com/animesharma3/chat-with-pdf.git
 ## License
 
 This project is licensed under the MIT License.
+
+## About the creator
+
+Created by [Animesh Sharma](https://animesh.cc). For product design and development work, visit [Hire Animesh](https://hire.animesh.cc).
